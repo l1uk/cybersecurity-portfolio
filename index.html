@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Cybersecurity Reports</title>
+    <title>Academic Cybersecurity Portfolio</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
             background: #f8f9fa;
@@ -33,6 +33,43 @@
             color: #6c757d;
         }
 
+        .cv-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cv-section h2 {
+            margin-bottom: 1rem;
+            border: none;
+            color: white;
+        }
+
+        .cv-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cv-link {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cv-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
         .section {
             background: white;
             padding: 2rem;
@@ -48,123 +85,207 @@
             margin-bottom: 1.5rem;
         }
 
-        .report-list {
-            list-style: none;
-            padding: 0;
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
         }
 
-        .report-item {
-            padding: 1rem;
+        .report-card {
             border: 1px solid #e9ecef;
             border-radius: 5px;
-            margin-bottom: 1rem;
-            transition: box-shadow 0.2s;
+            padding: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: #f8f9fa;
         }
 
-        .report-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        .report-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .report-title {
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .report-course {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
         }
 
         .download-link {
             color: #3498db;
             text-decoration: none;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: #e8f4f8;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background 0.2s;
         }
 
         .download-link:hover {
-            text-decoration: underline;
+            background: #d1ecf1;
+            text-decoration: none;
         }
 
-        .coming-soon {
+        .loading {
             text-align: center;
             color: #6c757d;
-            font-style: italic;
             padding: 2rem;
-            border: 2px dashed #dee2e6;
-            border-radius: 5px;
+        }
+
+        .file-icon {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .cv-links {
+                flex-direction: column;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Academic Cybersecurity Reports</h1>
-        <p>Collection of academic reports and assignments in cybersecurity</p>
+        <h1>Academic Cybersecurity Portfolio</h1>
+        <p>Collection of academic reports, assignments, and curriculum vitae</p>
     </header>
 
     <main>
-        <section class="section">
-            <h2>Network Security</h2>
-            <ul class="report-list">
-                <li class="report-item">
-                    <div class="report-title">Network Vulnerability Assessment</div>
-                    <div class="report-course">Network Security Course</div>
-                    <a href="reports/network-security/network-vuln-assessment.pdf" class="download-link">Download PDF</a>
-                </li>
-                <li class="report-item">
-                    <div class="report-title">Firewall Configuration Analysis</div>
-                    <div class="report-course">Network Security Course</div>
-                    <a href="reports/network-security/firewall-analysis.pdf" class="download-link">Download PDF</a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Web Security</h2>
-            <ul class="report-list">
-                <li class="report-item">
-                    <div class="report-title">OWASP Top 10 Analysis</div>
-                    <div class="report-course">Web Application Security</div>
-                    <a href="reports/web-security/owasp-top10-analysis.pdf" class="download-link">Download PDF</a>
-                </li>
-                <li class="report-item">
-                    <div class="report-title">SQL Injection Testing Report</div>
-                    <div class="report-course">Web Application Security</div>
-                    <a href="reports/web-security/sql-injection-report.pdf" class="download-link">Download PDF</a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Cryptography</h2>
-            <ul class="report-list">
-                <li class="report-item">
-                    <div class="report-title">RSA Implementation and Analysis</div>
-                    <div class="report-course">Applied Cryptography</div>
-                    <a href="reports/cryptography/rsa-implementation.pdf" class="download-link">Download PDF</a>
-                </li>
-                <li class="report-item">
-                    <div class="report-title">Blockchain Security Assessment</div>
-                    <div class="report-course">Applied Cryptography</div>
-                    <a href="reports/cryptography/blockchain-security.pdf" class="download-link">Download PDF</a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Digital Forensics</h2>
-            <div class="coming-soon">
-                Reports coming soon...
+        <!-- CV Section -->
+        <section class="cv-section">
+            <h2>📄 Curriculum Vitae</h2>
+            <div class="cv-links" id="cv-links">
+                <div class="loading">Loading CV files...</div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>Incident Response</h2>
-            <div class="coming-soon">
-                Reports coming soon...
-            </div>
-        </section>
+        <!-- Reports Container -->
+        <div id="reports-container">
+            <div class="loading">Loading reports...</div>
+        </div>
     </main>
+
+    <script>
+        // File structure based on your directory
+        const fileStructure = {
+            cv: [
+                'CV - EN.pdf',
+                'CV - ES.pdf',
+                'CV - FR.pdf'
+            ],
+            reports: {
+                'Cryptography': [
+                    'AES.pdf',
+                    'Crypto_protocols.pdf',
+                    'FrodoKEM.pdf',
+                    'LSFR.pdf'
+                ],
+                'Hardware Security': [
+                    'Side Channels examples.pdf'
+                ],
+                'Novel IDS - Graph Attention Network': [
+                    'Internship_presentation.pdf',
+                    'Internship_Report.pdf'
+                ],
+                'Secure programming': [
+                    'Bug Fixing.pdf',
+                    'Vulnerability assestment.pdf'
+                ]
+            }
+        };
+
+        // Function to get file icon based on extension
+        function getFileIcon(filename) {
+            if (filename.toLowerCase().includes('cv')) return '📋';
+            if (filename.toLowerCase().includes('presentation')) return '📊';
+            if (filename.toLowerCase().includes('report')) return '📄';
+            return '📄';
+        }
+
+        // Function to create clean display name
+        function getDisplayName(filename) {
+            return filename.replace('.pdf', '').replace(/_/g, ' ');
+        }
+
+        // Function to get language flag
+        function getLanguageFlag(filename) {
+            if (filename.includes('EN')) return '🇬🇧';
+            if (filename.includes('ES')) return '🇪🇸';
+            if (filename.includes('FR')) return '🇫🇷';
+            return '';
+        }
+
+        // Render CV section
+        function renderCVSection() {
+            const cvContainer = document.getElementById('cv-links');
+            cvContainer.innerHTML = '';
+
+            fileStructure.cv.forEach(filename => {
+                const link = document.createElement('a');
+                link.href = filename;
+                link.className = 'cv-link';
+                link.innerHTML = `${getLanguageFlag(filename)} ${getDisplayName(filename)}`;
+                link.target = '_blank';
+                cvContainer.appendChild(link);
+            });
+        }
+
+        // Render reports sections
+        function renderReportsSection() {
+            const container = document.getElementById('reports-container');
+            container.innerHTML = '';
+
+            Object.entries(fileStructure.reports).forEach(([topic, files]) => {
+                const section = document.createElement('section');
+                section.className = 'section';
+
+                const heading = document.createElement('h2');
+                heading.textContent = topic;
+                section.appendChild(heading);
+
+                const grid = document.createElement('div');
+                grid.className = 'report-grid';
+
+                files.forEach(filename => {
+                    const card = document.createElement('div');
+                    card.className = 'report-card';
+
+                    const title = document.createElement('div');
+                    title.className = 'report-title';
+                    title.innerHTML = `${getFileIcon(filename)} ${getDisplayName(filename)}`;
+
+                    const link = document.createElement('a');
+                    link.href = `reports/${encodeURIComponent(topic)}/${encodeURIComponent(filename)}`;
+                    link.className = 'download-link';
+                    link.textContent = 'Download PDF';
+                    link.target = '_blank';
+
+                    card.appendChild(title);
+                    card.appendChild(link);
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        }
+
+        // Initialize the page
+        function init() {
+            renderCVSection();
+            renderReportsSection();
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
