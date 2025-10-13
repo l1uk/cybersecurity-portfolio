@@ -85,65 +85,12 @@
             margin-bottom: 1.5rem;
         }
 
-        /* --- Project Specific Styles --- */
-        .project-card {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border: 1px solid #e9ecef;
-            border-left: 5px solid #3498db; /* A strong visual cue */
-            border-radius: 4px;
-            background: #f8f9fa;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .project-link {
-            font-style: italic;
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.9rem;
-            flex-shrink: 0; /* Prevents shrinking */
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        .project-subtitle {
-            font-style: italic;
-            color: #6c757d;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .project-highlights {
-            list-style: disc;
-            padding-left: 20px;
-            margin-top: 0.5rem;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .project-highlights li {
-            margin-bottom: 0.4rem;
-        }
-        /* --- End Project Specific Styles --- */
-
+        /* --- Reports Grid (Primary Focus) --- */
         .report-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem; /* Increased gap for visual separation */
+            margin-bottom: 2rem; /* Separate from the project list */
         }
 
         .report-card {
@@ -157,6 +104,15 @@
         .report-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .report-topic-title {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
         }
 
         .report-title {
@@ -180,6 +136,62 @@
         .download-link:hover {
             background: #d1ecf1;
             text-decoration: none;
+        }
+
+        /* --- Project List (Secondary Focus) --- */
+        .project-list-container {
+            margin-top: 2rem;
+            border-top: 1px solid #e9ecef;
+            padding-top: 1.5rem;
+        }
+
+        .project-list-container h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .project-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px dotted #e9ecef;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title-link {
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+
+        .project-title-link:hover {
+            text-decoration: underline;
+            color: #3498db;
+        }
+
+        .project-subtitle-text {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* --- Skills Section --- */
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .skills-list strong {
+            color: #2c3e50;
         }
 
         .loading {
@@ -221,15 +233,8 @@
             </div>
         </section>
 
-        <section class="section" id="projects-container">
-            <h2>💻 Key Projects</h2>
-            <div id="projects-list">
-                <div class="loading">Loading projects...</div>
-            </div>
-        </section>
-
-        <div id="reports-container">
-            <div class="loading">Loading reports...</div>
+        <div id="merged-projects-reports-container">
+            <div class="loading">Loading projects and reports...</div>
         </div>
 
         <section class="section" id="skills-container">
@@ -266,92 +271,57 @@
                     'Vulnerability assestment.pdf'
                 ]
             },
-            // --- NEW PROJECTS DATA ---
             projects: [
                 {
                     title: "AI-Driven Bot Implementation for Process Automation",
                     subtitle: "Bachelor Thesis Project - Grade: 110/110 cum laude",
                     linkText: "Thesis PDF",
                     linkHref: "https://github.com/l1uk/l1uk/raw/refs/heads/main/TESI.pdf",
-                    highlights: [
-                        "Developed an AI-powered bot that can parse and solve service tickets",
-                        "Implemented Robotic Process Automation for IT infrastructure management",
-                        "Technologies: Python, Selenium WebDriver",
-                        "Note: Codebase is confidential but report is public"
-                    ]
+                    highlights: ["Python, Selenium WebDriver", "RPA for IT management"]
                 },
                 {
                     title: "Low-Resources Cryptography Using Conway's Game of Life",
-                    subtitle: "Pair project for Probability and Statistics exam",
-                    linkText: "GitHub Repository",
+                    subtitle: "Probability and Statistics project",
+                    linkText: "GitHub",
                     linkHref: "https://github.com/l1uk/DIY-Cryptography",
-                    highlights: [
-                        "Developed a lightweight image encryption system using cellular automata simulation",
-                        "Performed tests on the cryptosystem and improved it gradually through iterative analysis",
-                        "Ideal for resource-constrained environments and IoT applications",
-                        "Technologies: MATLAB, Python"
-                    ]
+                    highlights: ["MATLAB, Python", "Lightweight image encryption"]
                 },
                 {
                     title: "Low-Level Concurrency Management Case Studies",
-                    subtitle: "Coursework for Operating Systems exam",
-                    linkText: "GitHub Repository",
+                    subtitle: "Operating Systems Coursework",
+                    linkText: "GitHub",
                     linkHref: "https://github.com/l1uk/OperatingSystems",
-                    highlights: [
-                        "Set of C code that tackles resource sharing and concurrency problems",
-                        "Implemented secure synchronization using C Mutex library",
-                        "Applied secure coding practices for memory management and race condition prevention",
-                        "Technologies: C"
-                    ]
+                    highlights: ["C, Mutex", "Secure synchronization"]
                 },
                 {
                     title: "C++ Codebase with Security Focus",
-                    subtitle: "Developed during Basic and Advanced C++ courses",
-                    linkText: "GitHub Repository",
+                    subtitle: "Basic and Advanced C++ courses",
+                    linkText: "GitHub",
                     linkHref: "https://github.com/l1uk/CPlusPlus",
-                    highlights: [
-                        "Focused on security and strict control of memory management",
-                        "Concepts: STL, lifetimes, RAII, Move Semantics, Dynamic Polymorphism",
-                        "Applied modern C++ best practices for secure software development",
-                        "Technologies: C++"
-                    ]
+                    highlights: ["C++", "Memory management, RAII"]
                 },
                 {
                     title: "Functional Programming Library",
-                    subtitle: "Coursework for Functional Programming exam",
-                    linkText: "GitHub Repository",
+                    subtitle: "Functional Programming Coursework",
+                    linkText: "GitHub",
                     linkHref: "https://github.com/l1uk/scala",
-                    highlights: [
-                        "Scala implementations leveraging functional programming concepts",
-                        "Concepts: Currying, pure functions, type systems, tail recursion",
-                        "Included test cases to check correctness of solutions",
-                        "Technologies: Scala"
-                    ]
+                    highlights: ["Scala", "Pure functions, Type systems"]
                 },
                 {
                     title: "Emotional Songs Web Application",
-                    subtitle: "Group project during bachelor degree",
-                    linkText: "GitHub Repository",
+                    subtitle: "Bachelor Group project",
+                    linkText: "GitHub",
                     linkHref: "https://github.com/l1uk/EmotionalSongs",
-                    highlights: [
-                        "Simple web application to navigate a library of songs",
-                        "Responsible for backend development and cloud architecture",
-                        "Technologies: Java, AWS, Vaadin, Spring Boot"
-                    ]
+                    highlights: ["Java, AWS, Spring Boot", "Backend/Cloud Architecture"]
                 },
                 {
                     title: "DIY Smart Greenhouse",
-                    subtitle: "Group project during high school (2018)",
-                    linkText: "2018", // Using year as link text for consistency
-                    linkHref: "#", // No public link provided, so using a placeholder
-                    highlights: [
-                        "Built a smart house irrigation system with humidity, light, and temperature monitoring",
-                        "Implemented automatic plant watering with data aggregation on dashboard",
-                        "Technologies: Arduino, Wiring, JavaScript"
-                    ]
+                    subtitle: "High School Project (2018)",
+                    linkText: "Details",
+                    linkHref: "#",
+                    highlights: ["Arduino, JavaScript", "IoT monitoring and automation"]
                 }
             ],
-            // --- NEW SKILLS/INTERESTS DATA (simplified) ---
             skills: {
                 professionalCompetencies: [
                     "Analytical and Big-Picture Thinking: Generalist mindset that balances technical depth with understanding of business needs, focusing on designing solutions that bridge technical and strategic goals",
@@ -383,7 +353,7 @@
             return '';
         }
 
-        // Render CV section
+        // Render CV section (unchanged)
         function renderCVSection() {
             const cvContainer = document.getElementById('cv-links');
             cvContainer.innerHTML = '';
@@ -398,66 +368,24 @@
             });
         }
 
-        // --- NEW FUNCTION: Render Projects Section ---
-        function renderProjectsSection() {
-            const projectsList = document.getElementById('projects-list');
-            projectsList.innerHTML = '';
+        // --- MERGED FUNCTION: Render Reports and Projects Section ---
+        function renderMergedSection() {
+            const container = document.getElementById('merged-projects-reports-container');
+            container.innerHTML = ''; // Clear loading state
 
-            fileStructure.projects.forEach(project => {
-                const card = document.createElement('div');
-                card.className = 'project-card';
+            const section = document.createElement('section');
+            section.className = 'section';
 
-                // Header (Title and Link)
-                const header = document.createElement('div');
-                header.className = 'project-header';
+            const mainHeading = document.createElement('h2');
+            mainHeading.innerHTML = '📚 Projects & Reports';
+            section.appendChild(mainHeading);
 
-                const title = document.createElement('div');
-                title.className = 'project-title';
-                title.textContent = project.title;
-                header.appendChild(title);
-
-                const link = document.createElement('a');
-                link.href = project.linkHref;
-                link.className = 'project-link';
-                link.textContent = project.linkText;
-                link.target = project.linkHref === '#' ? '_self' : '_blank'; // Open external links in a new tab
-                header.appendChild(link);
-
-                card.appendChild(header);
-
-                // Subtitle
-                const subtitle = document.createElement('span');
-                subtitle.className = 'project-subtitle';
-                subtitle.textContent = project.subtitle;
-                card.appendChild(subtitle);
-
-                // Highlights
-                const highlightsList = document.createElement('ul');
-                highlightsList.className = 'project-highlights';
-                project.highlights.forEach(highlight => {
-                    const li = document.createElement('li');
-                    li.textContent = highlight;
-                    highlightsList.appendChild(li);
-                });
-                card.appendChild(highlightsList);
-
-                projectsList.appendChild(card);
-            });
-        }
-        // --- END NEW FUNCTION ---
-
-        // Render reports sections
-        function renderReportsSection() {
-            const container = document.getElementById('reports-container');
-            container.innerHTML = '';
-
+            // --- 1. Reports (Prominent Grid View) ---
             Object.entries(fileStructure.reports).forEach(([topic, files]) => {
-                const section = document.createElement('section');
-                section.className = 'section';
-
-                const heading = document.createElement('h2');
-                heading.textContent = topic;
-                section.appendChild(heading);
+                const topicTitle = document.createElement('div');
+                topicTitle.className = 'report-topic-title';
+                topicTitle.textContent = topic;
+                section.appendChild(topicTitle);
 
                 const grid = document.createElement('div');
                 grid.className = 'report-grid';
@@ -470,12 +398,6 @@
                     title.className = 'report-title';
                     title.innerHTML = `${getFileIcon(filename)} ${getDisplayName(filename)}`;
 
-                    // NOTE: The report links assume a directory structure like:
-                    // /
-                    // |- CV - EN.pdf
-                    // |- reports/
-                    //    |- Cryptography/
-                    //       |- AES.pdf
                     const link = document.createElement('a');
                     link.href = `reports/${encodeURIComponent(topic)}/${encodeURIComponent(filename)}`;
                     link.className = 'download-link';
@@ -488,46 +410,64 @@
                 });
 
                 section.appendChild(grid);
-                container.appendChild(section);
             });
-        }
 
-        // --- NEW FUNCTION: Render Skills Section ---
+            // --- 2. Key Projects (Secondary List View) ---
+            const projectsContainer = document.createElement('div');
+            projectsContainer.className = 'project-list-container';
+
+            const projectsHeading = document.createElement('h3');
+            projectsHeading.textContent = 'Key Coding Projects';
+            projectsContainer.appendChild(projectsHeading);
+
+            fileStructure.projects.forEach(project => {
+                const item = document.createElement('div');
+                item.className = 'project-item';
+
+                const link = document.createElement('a');
+                link.href = project.linkHref;
+                link.className = 'project-title-link';
+                link.textContent = project.title;
+                link.target = project.linkHref === '#' ? '_self' : '_blank';
+                item.appendChild(link);
+
+                const subtitle = document.createElement('span');
+                subtitle.className = 'project-subtitle-text';
+                subtitle.textContent = `(${project.subtitle}) [${project.highlights.join(' | ')}]`;
+                item.appendChild(subtitle);
+
+                projectsContainer.appendChild(item);
+            });
+
+            section.appendChild(projectsContainer);
+            container.appendChild(section);
+        }
+        // --- END MERGED FUNCTION ---
+
+        // Render Skills Section
         function renderSkillsSection() {
             const skillsContainer = document.getElementById('skills-container');
             skillsContainer.innerHTML = '<h2>✨ Additional Skills & Interests</h2>';
 
-            const competenciesDiv = document.createElement('div');
-
-            const h4 = document.createElement('strong');
-            h4.textContent = 'Professional Competencies:';
-            competenciesDiv.appendChild(h4);
-
             const ul = document.createElement('ul');
-            ul.className = 'project-highlights'; // Reusing style for bullet points
-            ul.style.listStyleType = 'none'; // Removing default bullet for this section
-            ul.style.paddingLeft = '0';
-            ul.style.marginTop = '0';
+            ul.className = 'skills-list';
 
             fileStructure.skills.professionalCompetencies.forEach(skill => {
                 const li = document.createElement('li');
-                // Boldening the first part of the skill for the 'header' effect
+                // Boldening the first part of the skill
                 const parts = skill.split(':');
                 li.innerHTML = `<strong>${parts[0]}:</strong> ${parts.slice(1).join(':').trim()}`;
                 ul.appendChild(li);
             });
 
-            competenciesDiv.appendChild(ul);
-            skillsContainer.appendChild(competenciesDiv);
+            skillsContainer.appendChild(ul);
         }
-        // --- END NEW FUNCTION ---
 
         // Initialize the page
         function init() {
             renderCVSection();
-            renderProjectsSection(); // Render new projects section
-            renderReportsSection();
-            renderSkillsSection(); // Render new skills section
+            renderMergedSection(); // Call the merged function
+            renderSkillsSection();
         }
 
         // Run when page loads
