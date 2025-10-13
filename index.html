@@ -85,6 +85,61 @@
             margin-bottom: 1.5rem;
         }
 
+        /* --- Project Specific Styles --- */
+        .project-card {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+            border-left: 5px solid #3498db; /* A strong visual cue */
+            border-radius: 4px;
+            background: #f8f9fa;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .project-link {
+            font-style: italic;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            flex-shrink: 0; /* Prevents shrinking */
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-subtitle {
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .project-highlights {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 0.5rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .project-highlights li {
+            margin-bottom: 0.4rem;
+        }
+        /* --- End Project Specific Styles --- */
+
         .report-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -159,7 +214,6 @@
     </header>
 
     <main>
-        <!-- CV Section -->
         <section class="cv-section">
             <h2>📄 Curriculum Vitae</h2>
             <div class="cv-links" id="cv-links">
@@ -167,10 +221,21 @@
             </div>
         </section>
 
-        <!-- Reports Container -->
+        <section class="section" id="projects-container">
+            <h2>💻 Key Projects</h2>
+            <div id="projects-list">
+                <div class="loading">Loading projects...</div>
+            </div>
+        </section>
+
         <div id="reports-container">
             <div class="loading">Loading reports...</div>
         </div>
+
+        <section class="section" id="skills-container">
+            <h2>✨ Additional Skills & Interests</h2>
+            <div class="loading">Loading skills...</div>
+        </section>
     </main>
 
     <script>
@@ -199,6 +264,99 @@
                 'Secure programming': [
                     'Bug Fixing.pdf',
                     'Vulnerability assestment.pdf'
+                ]
+            },
+            // --- NEW PROJECTS DATA ---
+            projects: [
+                {
+                    title: "AI-Driven Bot Implementation for Process Automation",
+                    subtitle: "Bachelor Thesis Project - Grade: 110/110 cum laude",
+                    linkText: "Thesis PDF",
+                    linkHref: "https://github.com/l1uk/l1uk/raw/refs/heads/main/TESI.pdf",
+                    highlights: [
+                        "Developed an AI-powered bot that can parse and solve service tickets",
+                        "Implemented Robotic Process Automation for IT infrastructure management",
+                        "Technologies: Python, Selenium WebDriver",
+                        "Note: Codebase is confidential but report is public"
+                    ]
+                },
+                {
+                    title: "Low-Resources Cryptography Using Conway's Game of Life",
+                    subtitle: "Pair project for Probability and Statistics exam",
+                    linkText: "GitHub Repository",
+                    linkHref: "https://github.com/l1uk/DIY-Cryptography",
+                    highlights: [
+                        "Developed a lightweight image encryption system using cellular automata simulation",
+                        "Performed tests on the cryptosystem and improved it gradually through iterative analysis",
+                        "Ideal for resource-constrained environments and IoT applications",
+                        "Technologies: MATLAB, Python"
+                    ]
+                },
+                {
+                    title: "Low-Level Concurrency Management Case Studies",
+                    subtitle: "Coursework for Operating Systems exam",
+                    linkText: "GitHub Repository",
+                    linkHref: "https://github.com/l1uk/OperatingSystems",
+                    highlights: [
+                        "Set of C code that tackles resource sharing and concurrency problems",
+                        "Implemented secure synchronization using C Mutex library",
+                        "Applied secure coding practices for memory management and race condition prevention",
+                        "Technologies: C"
+                    ]
+                },
+                {
+                    title: "C++ Codebase with Security Focus",
+                    subtitle: "Developed during Basic and Advanced C++ courses",
+                    linkText: "GitHub Repository",
+                    linkHref: "https://github.com/l1uk/CPlusPlus",
+                    highlights: [
+                        "Focused on security and strict control of memory management",
+                        "Concepts: STL, lifetimes, RAII, Move Semantics, Dynamic Polymorphism",
+                        "Applied modern C++ best practices for secure software development",
+                        "Technologies: C++"
+                    ]
+                },
+                {
+                    title: "Functional Programming Library",
+                    subtitle: "Coursework for Functional Programming exam",
+                    linkText: "GitHub Repository",
+                    linkHref: "https://github.com/l1uk/scala",
+                    highlights: [
+                        "Scala implementations leveraging functional programming concepts",
+                        "Concepts: Currying, pure functions, type systems, tail recursion",
+                        "Included test cases to check correctness of solutions",
+                        "Technologies: Scala"
+                    ]
+                },
+                {
+                    title: "Emotional Songs Web Application",
+                    subtitle: "Group project during bachelor degree",
+                    linkText: "GitHub Repository",
+                    linkHref: "https://github.com/l1uk/EmotionalSongs",
+                    highlights: [
+                        "Simple web application to navigate a library of songs",
+                        "Responsible for backend development and cloud architecture",
+                        "Technologies: Java, AWS, Vaadin, Spring Boot"
+                    ]
+                },
+                {
+                    title: "DIY Smart Greenhouse",
+                    subtitle: "Group project during high school (2018)",
+                    linkText: "2018", // Using year as link text for consistency
+                    linkHref: "#", // No public link provided, so using a placeholder
+                    highlights: [
+                        "Built a smart house irrigation system with humidity, light, and temperature monitoring",
+                        "Implemented automatic plant watering with data aggregation on dashboard",
+                        "Technologies: Arduino, Wiring, JavaScript"
+                    ]
+                }
+            ],
+            // --- NEW SKILLS/INTERESTS DATA (simplified) ---
+            skills: {
+                professionalCompetencies: [
+                    "Analytical and Big-Picture Thinking: Generalist mindset that balances technical depth with understanding of business needs, focusing on designing solutions that bridge technical and strategic goals",
+                    "International Collaboration: Effective work in diverse, cross-functional teams with strong commitment to collaboration and organization",
+                    "Communication: Fluency in English, Italian, Spanish, and knowledge of German and French with strong communication skills across cultures"
                 ]
             }
         };
@@ -240,6 +398,54 @@
             });
         }
 
+        // --- NEW FUNCTION: Render Projects Section ---
+        function renderProjectsSection() {
+            const projectsList = document.getElementById('projects-list');
+            projectsList.innerHTML = '';
+
+            fileStructure.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+
+                // Header (Title and Link)
+                const header = document.createElement('div');
+                header.className = 'project-header';
+
+                const title = document.createElement('div');
+                title.className = 'project-title';
+                title.textContent = project.title;
+                header.appendChild(title);
+
+                const link = document.createElement('a');
+                link.href = project.linkHref;
+                link.className = 'project-link';
+                link.textContent = project.linkText;
+                link.target = project.linkHref === '#' ? '_self' : '_blank'; // Open external links in a new tab
+                header.appendChild(link);
+
+                card.appendChild(header);
+
+                // Subtitle
+                const subtitle = document.createElement('span');
+                subtitle.className = 'project-subtitle';
+                subtitle.textContent = project.subtitle;
+                card.appendChild(subtitle);
+
+                // Highlights
+                const highlightsList = document.createElement('ul');
+                highlightsList.className = 'project-highlights';
+                project.highlights.forEach(highlight => {
+                    const li = document.createElement('li');
+                    li.textContent = highlight;
+                    highlightsList.appendChild(li);
+                });
+                card.appendChild(highlightsList);
+
+                projectsList.appendChild(card);
+            });
+        }
+        // --- END NEW FUNCTION ---
+
         // Render reports sections
         function renderReportsSection() {
             const container = document.getElementById('reports-container');
@@ -264,6 +470,12 @@
                     title.className = 'report-title';
                     title.innerHTML = `${getFileIcon(filename)} ${getDisplayName(filename)}`;
 
+                    // NOTE: The report links assume a directory structure like:
+                    // /
+                    // |- CV - EN.pdf
+                    // |- reports/
+                    //    |- Cryptography/
+                    //       |- AES.pdf
                     const link = document.createElement('a');
                     link.href = `reports/${encodeURIComponent(topic)}/${encodeURIComponent(filename)}`;
                     link.className = 'download-link';
@@ -280,10 +492,42 @@
             });
         }
 
+        // --- NEW FUNCTION: Render Skills Section ---
+        function renderSkillsSection() {
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = '<h2>✨ Additional Skills & Interests</h2>';
+
+            const competenciesDiv = document.createElement('div');
+
+            const h4 = document.createElement('strong');
+            h4.textContent = 'Professional Competencies:';
+            competenciesDiv.appendChild(h4);
+
+            const ul = document.createElement('ul');
+            ul.className = 'project-highlights'; // Reusing style for bullet points
+            ul.style.listStyleType = 'none'; // Removing default bullet for this section
+            ul.style.paddingLeft = '0';
+            ul.style.marginTop = '0';
+
+            fileStructure.skills.professionalCompetencies.forEach(skill => {
+                const li = document.createElement('li');
+                // Boldening the first part of the skill for the 'header' effect
+                const parts = skill.split(':');
+                li.innerHTML = `<strong>${parts[0]}:</strong> ${parts.slice(1).join(':').trim()}`;
+                ul.appendChild(li);
+            });
+
+            competenciesDiv.appendChild(ul);
+            skillsContainer.appendChild(competenciesDiv);
+        }
+        // --- END NEW FUNCTION ---
+
         // Initialize the page
         function init() {
             renderCVSection();
+            renderProjectsSection(); // Render new projects section
             renderReportsSection();
+            renderSkillsSection(); // Render new skills section
         }
 
         // Run when page loads
