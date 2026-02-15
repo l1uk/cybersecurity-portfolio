@@ -3,214 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Cybersecurity Portfolio</title>
+    <title>Cybersecurity Portfolio - Luca Volonterio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
             color: #333;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header h1 {
-            color: #2c3e50;
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
         }
 
-        .header p {
-            color: #6c757d;
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
         }
 
         .cv-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .cv-section h2 {
-            margin-bottom: 1rem;
-            border: none;
-            color: white;
-        }
-
-        .cv-links {
             display: flex;
             gap: 1rem;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
-        .cv-link {
-            background: rgba(255,255,255,0.2);
+        .cv-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: white;
-            text-decoration: none;
             padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.2s;
-            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .cv-link:hover {
-            background: rgba(255,255,255,0.3);
+        .cv-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .cv-btn::before {
+            content: "📄";
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 2rem;
         }
 
         .section {
             background: white;
+            border-radius: 12px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .section h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #7e22ce;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-header h2 {
+            color: #1e3c72;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .subsection {
             margin-bottom: 1.5rem;
         }
 
-        /* --- Reports Grid (Primary Focus) --- */
+        .subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .subsection-title {
+            color: #2a5298;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection-title::before {
+            content: "▶";
+            color: #7e22ce;
+            font-size: 0.8rem;
+        }
+
         .report-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; /* Increased gap for visual separation */
-            margin-bottom: 2rem; /* Separate from the project list */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
         .report-card {
-            border: 1px solid #e9ecef;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
             padding: 1.2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            background: #f8f9fa;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #7e22ce, #2a5298);
         }
 
         .report-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .report-topic-title {
-            font-size: 1.25rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid #e9ecef;
-            font-weight: 600;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(126, 34, 206, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         }
 
         .report-title {
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 600;
+            color: #1e3c72;
             margin-bottom: 0.8rem;
             font-size: 1rem;
-        }
-
-        .download-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            background: #e8f4f8;
-            border-radius: 4px;
-            display: inline-block;
-            transition: background 0.2s;
-        }
-
-        .download-link:hover {
-            background: #d1ecf1;
-            text-decoration: none;
-        }
-
-        /* --- Project List (Secondary Focus) --- */
-        .project-list-container {
-            margin-top: 2rem;
-            border-top: 1px solid #e9ecef;
-            padding-top: 1.5rem;
-        }
-
-        .project-list-container h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .project-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px dotted #e9ecef;
-        }
-
-        .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .project-title-link {
-            font-weight: bold;
-            color: #2c3e50;
-            text-decoration: none;
-            margin-right: 0.5rem;
-        }
-
-        .project-title-link:hover {
-            text-decoration: underline;
-            color: #3498db;
-        }
-
-        .project-subtitle-text {
-            font-style: italic;
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-
-        /* --- Skills Section --- */
-        .skills-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .skills-list li {
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
             line-height: 1.4;
         }
 
-        .skills-list strong {
-            color: #2c3e50;
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7e22ce;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
 
-        .loading {
+        .download-link:hover {
+            color: #2a5298;
+            gap: 0.7rem;
+        }
+
+        .download-link::before {
+            content: "⬇";
+            font-size: 1rem;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, #7e22ce 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .highlight-section .section-header {
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight-section .section-header h2 {
+            color: white;
+        }
+
+        .highlight-section .report-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-section .report-card::before {
+            background: white;
+        }
+
+        .highlight-section .report-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .highlight-section .report-title {
+            color: white;
+        }
+
+        .highlight-section .download-link {
+            color: white;
+        }
+
+        .highlight-section .download-link:hover {
+            opacity: 0.9;
+        }
+
+        .coming-soon {
             text-align: center;
             color: #6c757d;
+            font-style: italic;
             padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
         }
 
-        .file-icon {
-            margin-right: 0.5rem;
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
-            body {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .container {
                 padding: 1rem;
             }
 
-            .cv-links {
-                flex-direction: column;
+            .section {
+                padding: 1.5rem;
             }
 
             .report-grid {
@@ -220,258 +282,124 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Academic Cybersecurity Portfolio</h1>
-        <p>Collection of academic reports, assignments, and curriculum vitae</p>
-    </header>
-
-    <main>
-        <section class="cv-section">
-            <h2>📄 Curriculum Vitae</h2>
-            <div class="cv-links" id="cv-links">
-                <div class="loading">Loading CV files...</div>
+    <div class="container">
+        <header class="hero">
+            <h1>Cybersecurity Portfolio</h1>
+            <p>Academic Research & Technical Reports</p>
+            
+            <div class="cv-section">
+                <a href="CV - EN.pdf" class="cv-btn">CV - English</a>
+                <a href="CV - IT.pdf" class="cv-btn">CV - Italiano</a>
+                <a href="CV - FR.pdf" class="cv-btn">CV - Français</a>
+                <a href="CV - ES.pdf" class="cv-btn">CV - Español</a>
             </div>
-        </section>
+        </header>
 
-        <div id="merged-projects-reports-container">
-            <div class="loading">Loading projects and reports...</div>
-        </div>
+        <main class="content-grid">
+            <!-- Research Highlight -->
+            <section class="section highlight-section">
+                <div class="section-header">
+                    <span class="section-icon">🔬</span>
+                    <h2>Novel IDS - Graph Attention Network</h2>
+                </div>
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-title">Internship Report - GNN-based Intrusion Detection</div>
+                        <a href="reports/Novel IDS - Graph Attention Network/Internship_Report.pdf" class="download-link">View Report</a>
+                    </div>
+                    <div class="report-card">
+                        <div class="report-title">Research Presentation - 99% Accuracy IDS</div>
+                        <a href="reports/Novel IDS - Graph Attention Network/Internship_presentation.pdf" class="download-link">View Slides</a>
+                    </div>
+                </div>
+            </section>
 
-        <section class="section" id="skills-container">
-            <h2>✨ Additional Skills & Interests</h2>
-            <div class="loading">Loading skills...</div>
-        </section>
-    </main>
+            <!-- AI Engineering -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">🤖</span>
+                    <h2>AI Engineering</h2>
+                </div>
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-title">AI Talent Scout - Agent Architecture</div>
+                        <a href="reports/AI engineering/AI__talent_scout___agent_architecture.pdf" class="download-link">View Report</a>
+                    </div>
+                    <div class="report-card">
+                        <div class="report-title">AI Talent Scout - Software Specifications</div>
+                        <a href="reports/AI engineering/AI__talent_scout___software_specifications.pdf" class="download-link">View Report</a>
+                    </div>
+                </div>
+            </section>
 
-    <script>
-        // File structure based on your directory
-        const fileStructure = {
-            cv: [
-                'CV - EN.pdf',
-                'CV - ES.pdf',
-                'CV - FR.pdf',
-                'CV - IT.pdf',
-            ],
-            reports: {
-                'Cryptography': [
-                    'AES.pdf',
-                    'Crypto_protocols.pdf',
-                    'FrodoKEM.pdf',
-                    'LSFR.pdf'
-                ],
-                'Hardware Security': [
-                    'Side Channels examples.pdf'
-                ],
-                'Novel IDS - Graph Attention Network': [
-                    'Internship_presentation.pdf',
-                    'Internship_Report.pdf'
-                ],
-                'Secure programming': [
-                    'Bug Fixing.pdf',
-                    'Vulnerability assestment.pdf'
-                ]
-            },
-            projects: [
-                {
-                    title: "AI-Driven Bot Implementation for Process Automation",
-                    subtitle: "Bachelor Thesis Project - Grade: 110/110 cum laude",
-                    linkText: "Thesis PDF",
-                    linkHref: "https://github.com/l1uk/l1uk/raw/refs/heads/main/TESI.pdf",
-                    highlights: ["Python, Selenium WebDriver", "RPA for IT management"]
-                },
-                {
-                    title: "Low-Resources Cryptography Using Conway's Game of Life",
-                    subtitle: "Probability and Statistics project",
-                    linkText: "GitHub",
-                    linkHref: "https://github.com/l1uk/DIY-Cryptography",
-                    highlights: ["MATLAB, Python", "Lightweight image encryption"]
-                },
-                {
-                    title: "Low-Level Concurrency Management Case Studies",
-                    subtitle: "Operating Systems Coursework",
-                    linkText: "GitHub",
-                    linkHref: "https://github.com/l1uk/OperatingSystems",
-                    highlights: ["C, Mutex", "Secure synchronization"]
-                },
-                {
-                    title: "C++ Codebase with Security Focus",
-                    subtitle: "Basic and Advanced C++ courses",
-                    linkText: "GitHub",
-                    linkHref: "https://github.com/l1uk/CPlusPlus",
-                    highlights: ["C++", "Memory management, RAII"]
-                },
-                {
-                    title: "Functional Programming Library",
-                    subtitle: "Functional Programming Coursework",
-                    linkText: "GitHub",
-                    linkHref: "https://github.com/l1uk/scala",
-                    highlights: ["Scala", "Pure functions, Type systems"]
-                },
-                {
-                    title: "Emotional Songs Web Application",
-                    subtitle: "Bachelor Group project",
-                    linkText: "GitHub",
-                    linkHref: "https://github.com/l1uk/EmotionalSongs",
-                    highlights: ["Java, AWS, Spring Boot", "Backend/Cloud Architecture"]
-                },
-                {
-                    title: "DIY Smart Greenhouse",
-                    subtitle: "High School Project (2018)",
-                    linkText: "Details",
-                    linkHref: "#",
-                    highlights: ["Arduino, JavaScript", "IoT monitoring and automation"]
-                }
-            ],
-            skills: {
-                professionalCompetencies: [
-                    "Analytical and Big-Picture Thinking: Generalist mindset that balances technical depth with understanding of business needs, focusing on designing solutions that bridge technical and strategic goals",
-                    "International Collaboration: Effective work in diverse, cross-functional teams with strong commitment to collaboration and organization",
-                    "Communication: Fluency in English, Italian, Spanish, and knowledge of German and French with strong communication skills across cultures"
-                ]
-            }
-        };
+            <!-- IoT Security -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">📡</span>
+                    <h2>IoT Security</h2>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">Side Channel Analysis</div>
+                    <div class="report-grid">
+                        <div class="report-card">
+                            <div class="report-title">Side Channel Attack Examples</div>
+                            <a href="reports/IoT Security/Side Channels examples.pdf" class="download-link">View Report</a>
+                        </div>
+                    </div>
+                </div>
 
-        // Function to get file icon based on extension
-        function getFileIcon(filename) {
-            if (filename.toLowerCase().includes('cv')) return '📋';
-            if (filename.toLowerCase().includes('presentation')) return '📊';
-            if (filename.toLowerCase().includes('report')) return '📄';
-            return '📄';
-        }
+                <div class="subsection">
+                    <div class="subsection-title">Embedded Systems Security</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
 
-        // Function to create clean display name
-        function getDisplayName(filename) {
-            return filename.replace('.pdf', '').replace(/_/g, ' ');
-        }
+                <div class="subsection">
+                    <div class="subsection-title">Wireless Communication Security</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
+            </section>
 
-        // Function to get language flag
-        function getLanguageFlag(filename) {
-            if (filename.includes('EN')) return '🇬🇧';
-            if (filename.includes('ES')) return '🇪🇸';
-            if (filename.includes('FR')) return '🇫🇷';
-            if (filename.includes('IT')) return '🇮🇹';
-            return '';
-        }
+            <!-- Cryptology -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">🔐</span>
+                    <h2>Cryptology</h2>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">Cryptography</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
 
-        // Render CV section (unchanged)
-        function renderCVSection() {
-            const cvContainer = document.getElementById('cv-links');
-            cvContainer.innerHTML = '';
+                <div class="subsection">
+                    <div class="subsection-title">Cryptanalysis</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
+            </section>
 
-            fileStructure.cv.forEach(filename => {
-                const link = document.createElement('a');
-                link.href = filename;
-                link.className = 'cv-link';
-                link.innerHTML = `${getLanguageFlag(filename)} ${getDisplayName(filename)}`;
-                link.target = '_blank';
-                cvContainer.appendChild(link);
-            });
-        }
+            <!-- Software Security -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">💻</span>
+                    <h2>Software Security</h2>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">Secure Programming</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
 
-        // --- MERGED FUNCTION: Render Reports and Projects Section ---
-        function renderMergedSection() {
-            const container = document.getElementById('merged-projects-reports-container');
-            container.innerHTML = ''; // Clear loading state
+                <div class="subsection">
+                    <div class="subsection-title">Forensics & Reverse Engineering</div>
+                    <div class="coming-soon">Reports coming soon...</div>
+                </div>
+            </section>
+        </main>
 
-            const section = document.createElement('section');
-            section.className = 'section';
-
-            const mainHeading = document.createElement('h2');
-            mainHeading.innerHTML = '📚 Projects & Reports';
-            section.appendChild(mainHeading);
-
-            // --- 1. Reports (Prominent Grid View) ---
-            Object.entries(fileStructure.reports).forEach(([topic, files]) => {
-                const topicTitle = document.createElement('div');
-                topicTitle.className = 'report-topic-title';
-                topicTitle.textContent = topic;
-                section.appendChild(topicTitle);
-
-                const grid = document.createElement('div');
-                grid.className = 'report-grid';
-
-                files.forEach(filename => {
-                    const card = document.createElement('div');
-                    card.className = 'report-card';
-
-                    const title = document.createElement('div');
-                    title.className = 'report-title';
-                    title.innerHTML = `${getFileIcon(filename)} ${getDisplayName(filename)}`;
-
-                    const link = document.createElement('a');
-                    link.href = `reports/${encodeURIComponent(topic)}/${encodeURIComponent(filename)}`;
-                    link.className = 'download-link';
-                    link.textContent = 'Download PDF';
-                    link.target = '_blank';
-
-                    card.appendChild(title);
-                    card.appendChild(link);
-                    grid.appendChild(card);
-                });
-
-                section.appendChild(grid);
-            });
-
-            // --- 2. Key Projects (Secondary List View) ---
-            const projectsContainer = document.createElement('div');
-            projectsContainer.className = 'project-list-container';
-
-            const projectsHeading = document.createElement('h3');
-            projectsHeading.textContent = 'Key Coding Projects';
-            projectsContainer.appendChild(projectsHeading);
-
-            fileStructure.projects.forEach(project => {
-                const item = document.createElement('div');
-                item.className = 'project-item';
-
-                const link = document.createElement('a');
-                link.href = project.linkHref;
-                link.className = 'project-title-link';
-                link.textContent = project.title;
-                link.target = project.linkHref === '#' ? '_self' : '_blank';
-                item.appendChild(link);
-
-                const subtitle = document.createElement('span');
-                subtitle.className = 'project-subtitle-text';
-                subtitle.textContent = `(${project.subtitle}) [${project.highlights.join(' | ')}]`;
-                item.appendChild(subtitle);
-
-                projectsContainer.appendChild(item);
-            });
-
-            section.appendChild(projectsContainer);
-            container.appendChild(section);
-        }
-        // --- END MERGED FUNCTION ---
-
-        // Render Skills Section
-        function renderSkillsSection() {
-            const skillsContainer = document.getElementById('skills-container');
-            skillsContainer.innerHTML = '<h2>✨ Additional Skills & Interests</h2>';
-
-            const ul = document.createElement('ul');
-            ul.className = 'skills-list';
-
-            fileStructure.skills.professionalCompetencies.forEach(skill => {
-                const li = document.createElement('li');
-                // Boldening the first part of the skill
-                const parts = skill.split(':');
-                li.innerHTML = `<strong>${parts[0]}:</strong> ${parts.slice(1).join(':').trim()}`;
-                ul.appendChild(li);
-            });
-
-            skillsContainer.appendChild(ul);
-        }
-
-        // Initialize the page
-        function init() {
-            renderCVSection();
-            renderMergedSection(); // Call the merged function
-            renderSkillsSection();
-        }
-
-        // Run when page loads
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
+        <footer>
+            <p>Academic Portfolio • Cybersecurity Research & Development</p>
+        </footer>
+    </div>
 </body>
 </html>
